@@ -25,20 +25,17 @@ This guide promotes the use of consistent, clean and orderly HTML code. Its purp
 6. [HTML Performance](#html-performance)  
     6.1. [Loading scripts and styles](#loading-scripts-and-styles)  
     6.2. [Minimization of markup](#minimization-of-markup)  
-7. [Best practices and SEO](#best-practices-and-seo)  
+7. [Best practices and SEO](#best-practices-and-seo)
+    7.1. [Semantic HTML](#semantic-html)
+    7.2. [Meta tags](#meta-tags)
+    7.3. [Accessibility and ARIA](#accessibility-and-aria) 
 8. [HTML Base Code](#html-base-code)  
-  
+
 ---
 
 ## File Structure
 - Files must have `.html` extension
 - Use **kebab-case** filenames (hyphens and lowercase)
-
-🟢 __Good:__
-
-~~~
-user-profile.html
-~~~
 
 🔴 __Bad:__
 
@@ -47,12 +44,31 @@ UserProfile.HTML
 userProfile.html
 ~~~
 
+🟢 __Good:__
+
+~~~
+user-profile.html
+~~~
+
 ---
 
 ## Coding and DOCTYPE
 
 - Always use `UTF-8` for character encoding.
 - Declare the document type as `<!DOCTYPE html>`.
+
+🔴 __Bad:__
+
+~~~
+<DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="" />
+    <title>My Page</title>
+  </head>
+  <body></body>
+</html>
+~~~
 
 🟢 __Good:__
 
@@ -67,18 +83,6 @@ userProfile.html
 </html>
 ~~~
 
-🔴 __Bad:__
-
-~~~
-<DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="" />
-    <title>My Page</title>
-  </head>
-  <body></body>
-</html>
-~~~
 ---
 
 ## Indentation and Spacing
@@ -87,7 +91,27 @@ userProfile.html
 - Each nested level must be **well indented**.
 - Separate the block element with a blank line and group the internal block elements.
 
+🔴 __Bad:__
+
+~~~
+<ul class="nav-tabs">
+
+  <li>...</li>
+
+  <li>...</li>
+
+  <li>...</li>
+
+  <li>...</li>
+
+</ul>
+<div class="tab-content">
+  ...
+</div>
+~~~
+
 🟢 __Good:__
+
 ~~~
 <ul class="nav-tabs">
   <li>...</li>
@@ -101,30 +125,18 @@ userProfile.html
 </div>
 ~~~
 
-🔴 __Bad:__
-
-~~~
-<ul class="nav-tabs">
-
-  <li>...</li>
-
-  <li>...</li>
-
-  <li>...</li>
-
-  <li>...</li>
-
-</ul>
-<div class="tab-content">
-  ...
-</div>
-~~~
 ---
 
 ## Comments
 
 - Use comments for **important sections** or **large blocks**
 - Follow the proper format for HTML comments
+
+🔴 __Bad:__
+
+~~~
+<!--This is a poorly formatted comment-->
+~~~
 
 🟢 __Good:__
 ~~~
@@ -135,12 +147,7 @@ userProfile.html
   This block explains the main navigation section.
 -->
 ~~~
-🔴 __Bad:__
 
-~~~
-// This is a comment
-<!--This is a poorly formatted comment-->
-~~~
 ---
 
 ## Attributes
@@ -148,31 +155,31 @@ userProfile.html
 ### Names in lowercase
 - Use lowercase attribute names
 
-🟢 __Good:__
-~~~
-<a href="#">Example</a>
-~~~
-
 🔴 __Bad:__
 ~~~
 <a HREF="#">Example</a>
+~~~
+
+🟢 __Good:__
+~~~
+<a href="#">Example</a>
 ~~~
 
 ### Attribute values
 - Use **double quotation marks** `" "` for values
 - Use **kebab-case** for the values
 
-🟢 __Good:__
-~~~
-<section class="user-section" id="user-section">
-  Section content goes here
-</section> 
-~~~
-
 🔴 __Bad:__
 ~~~
 <section class='userSection' id=section_one>
-  Section content goes here
+  section content goes here
+</section> 
+~~~
+
+🟢 __Good:__
+~~~
+<section class="user-section" id="user-section">
+  section content goes here
 </section> 
 ~~~
 
@@ -182,14 +189,14 @@ userProfile.html
 - `alt` must be descriptive of the image content for accessibility.
 - Define the **width** and **height** of the images
 
-🟢 __Good:__
-~~~
-<img src="html5.png" alt="HTML5" width="128" height="128">
-~~~
-
 🔴 __Bad:__
 ~~~
 <img src="html5.png">
+~~~
+
+🟢 __Good:__
+~~~
+<img src="html5.png" alt="HTML5" width="128" height="128">
 ~~~
 
 ### Attribute order
@@ -203,14 +210,6 @@ userProfile.html
     5. title, alt
     6. aria-*, role
 
-🟢 __Good:__
-~~~
-<a class="btn" id="contact-btn" href="#contact" title="Contact">
-  Contact us at
-</a>
-
-<img class="logo" src="logo.png" alt="Company logo">
-~~~
 🔴 __Bad:__
 
 ~~~
@@ -219,18 +218,28 @@ userProfile.html
 </a>
 ~~~
 
+🟢 __Good:__
+~~~
+<a class="btn" id="contact-btn" href="#contact" title="Contact">
+  Contact us at
+</a>
+
+<img class="logo" src="logo.png" alt="Company logo">
+~~~
+
 ### Spaces and equal signs
 - Avoid gaps around the equal **`=`**
 - The absence of spaces facilitates reading and improves the grouping of the entities.
 
-🟢 __Good:__
-~~~
-<link rel="stylesheet" href="styles.css">
-~~~
 🔴 __Bad:__
 
 ~~~
 <link rel = "stylesheet" href = "styles.css">
+~~~
+
+🟢 __Good:__
+~~~
+<link rel="stylesheet" href="styles.css">
 ~~~
 
 ### Identifiers for interactive elements
@@ -242,14 +251,6 @@ userProfile.html
 - The **`id`** must be **`unique`** on the page
 - Prefer **`class`** to apply styles and **`id`** to identify uniquely
 
-🟢 __Good:__
-~~~
-<button class="btn-submit" id="submit-form">Send</button>
-
-<a class="nav-link" id="home-link" href="/">Home</a>
-
-<input type="email" id="user-email" class="input-field">
-~~~
 🔴 __Bad:__
 
 ~~~
@@ -259,6 +260,16 @@ userProfile.html
 
 <input type="email">
 ~~~
+
+🟢 __Good:__
+~~~
+<button class="btn-submit" id="submit-form">Send</button>
+
+<a class="nav-link" id="home-link" href="/">Home</a>
+
+<input type="email" id="user-email" class="input-field">
+~~~
+
 📍 __Council:__ 
 >_If an element can be clicked or used in tests, **always assign a class or id with a descriptive name.**_
 
@@ -270,18 +281,6 @@ userProfile.html
 - Use `<link rel="stylesheet">` for external CSS
 - Use the `<script>` just before`</body>` unless it's `type="module"` or you need to load it before
 
-🟢 __Good:__
-
-~~~
-<head>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  ...
-  <script src="app.js"></script>
-</body>
-~~~
-
 🔴 __Bad:__
 
 ~~~
@@ -294,18 +293,22 @@ userProfile.html
 </body>
 ~~~
 
----
-### Minimization of marking
-- Avoid unnecessary containers
-- Keep HTML clean and purposeful
-
 🟢 __Good:__
 
 ~~~
-<div class="container">
-  <h1>Welcome to</h1>
-</div>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  ...
+  <script src="app.js"></script>
+</body>
 ~~~
+
+---
+### Minimization of markup
+- Avoid unnecessary containers
+- Keep HTML clean and purposeful
 
 🔴 __Bad:__
 
@@ -319,15 +322,136 @@ userProfile.html
 </div>
 ~~~
 
+🟢 __Good:__
+
+~~~
+<div class="container">
+  <h1>Welcome to</h1>
+</div>
+~~~
+
 ---
 
 ## Best practices and SEO
-- Use semantic tags (`<header>`, `<main>`, `<article>`, `<footer>`)
-- Add a `lang` attribute to `<html>`
+
+### Semantic HTML
+
+- Use semantic tags (`<header>`, `<section>`, `<main>`, `<article>`, `<footer>`)
 - Use headings (`<h1>` to `<h6>`) in a hierarchical way.
-- Always define `alt` on images
 - Avoid duplicate content and unnecessary nesting
+
+🔴 __Bad:__
+
+~~~
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Profile</title>
+</head>
+<body>
+  <div>
+    <div>User Profile</div>
+  </div>
+  <div>
+    <div>Personal Information</div>
+  </div>
+  <div>
+    <p>© 2025 Company</p>
+  </div>
+</body>
+</html>
+~~~
+
+🟢 __Good:__
+
+~~~
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Profile</title>
+</head>
+<body>
+  <header>
+    <h1>User Profile</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Personal Information</h2>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 Company</p>
+  </footer>
+</body>
+</html>
+~~~
+
+### Meta tags
+
+- Add a `lang` attribute to `<html>`
 - Use metadata: `<meta name="description" content="...">`
+
+🔴 __Bad:__
+
+~~~
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Profile</title>
+</head>
+<body>
+  <!-- Content -->
+</body>
+</html>
+~~~
+
+🟢 __Good:__
+
+~~~
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="User profile page with contact and configuration sections" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile</title>
+</head>
+<body>
+  <!-- Content -->
+</body>
+</html>
+~~~
+
+### Accessibility and ARIA
+
+- Always define `alt` on images
+- Use semantic elements `(e.g., <button>, <nav>)`.
+- When using non-semantic elements, add **ARIA** attributes `(role, aria-label, aria-hidden, etc.)` to describe their function and improve navigation.
+- **Avoid complex structures** that make comprehension or keyboard navigation difficult.
+
+🔴 __Bad:__
+
+~~~
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Accessible User Profile</title>
+</head>
+<body>
+  <img src="profile.jpg" />
+  
+  <div>
+    <ul>
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#settings">Settings</a></li>
+    </ul>
+  </div>
+
+  <div>Submit</div>
+</body>
+</html>
+~~~
 
 🟢 __Good:__
 ~~~
@@ -335,21 +459,19 @@ userProfile.html
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="User profile page with contact and configuration sections" />
-  <title>User Profile</title>
+  <title>Accessible User Profile</title>
 </head>
 <body>
+  <img src="profile.jpg" alt="User profile picture" />
+  
+  <nav role="navigation" aria-label="Main menu">
+    <ul>
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#settings">Settings</a></li>
+    </ul>
+  </nav>
 
-  <header>
-    <h1>User Profile</h1>
-  </header>
-
-  <main>
-    <section>
-      <h2>Personal Information</h2>
-    </section>
-  </main>
-
+  <button aria-label="Submit form">Submit</button>
 </body>
 </html>
 ~~~
