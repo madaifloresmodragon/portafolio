@@ -26,9 +26,9 @@ This guide promotes the use of consistent, clean and orderly HTML code. Its purp
     6.1. [Loading scripts and styles](#loading-scripts-and-styles)  
     6.2. [Minimization of markup](#minimization-of-markup)  
 7. [Best practices and SEO](#best-practices-and-seo)
-    7.1. [Semantic HTML](#semantic-html)
-    7.2. [Meta tags](#meta-tags)
-    7.3. [Accessibility and ARIA](#accessibility-and-aria) 
+    7.1. [Semantic HTML](#semantic-html)  
+    7.2. [Meta tags](#meta-tags)  
+    7.3. [Accessibility and ARIA](#accessibility-and-aria)  
 8. [HTML Base Code](#html-base-code)  
 
 ---
