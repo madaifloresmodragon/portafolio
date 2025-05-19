@@ -11,22 +11,22 @@ This guide promotes the use of consistent, clean and orderly HTML code. Its purp
 ---
 
 ## 📌 Table of Contents
-1. [File Structure](#file-structure)
-2. [Coding and DOCTYPE](#coding-and-doctype)
-3. [Indentation and Spacing](#indentation-and-spacing)
-4. [Comments](#comments)
-5. [Attributes](#attributes)
-  1. [5.1. Names in lowercase](#names-in-lowercase)
-  2. [5.2. Attribute values](#attribute-values)
-  3. [5.3. alt, width and height for images](#alt-width-and-height-for-images)
-  - [5.4. Attribute order](#Attribute-order)
-  - [5.5. Spaces and equal signs](#spaces-and-equal-signs)
-  - [5.6. Identifiers for interactive elements](#identifiers-for-interactive-elements)
-6. [HTML Performance](#6-html-performance)
-  - 6.1 [Loading scripts and styles](#loading-scripts-and-styles)
-  - 6.2 [Minimization of markup](#minimization-of-markup)
-7. [Best practices and SEO](#best-practices-and-seo)
-8. [HTML Base Code](#html-base-code)
+- [File Structure](#file-structure)
+- [Coding and DOCTYPE](#coding-and-doctype)
+- [Indentation and Spacing](#indentation-and-spacing)
+- [Comments](#comments)
+- [Attributes](#attributes)
+  - [Names in lowercase](#names-in-lowercase)
+  - [Attribute values](#attribute-values)
+  - [alt, width and height for images](#alt-width-and-height-for-images)
+  - [Attribute order](#Attribute-order)
+  - [Spaces and equal signs](#spaces-and-equal-signs)
+  - [Identifiers for interactive elements](#identifiers-for-interactive-elements)
+- [HTML Performance](#html-performance)
+  - [Loading scripts and styles](#loading-scripts-and-styles)
+  - [Minimization of marking](#minimization-of-marking)
+- [Best practices and SEO](#best-practices-and-seo)
+- [HTML Base Code](#html-base-code)
 ---
 
 ## File Structure
